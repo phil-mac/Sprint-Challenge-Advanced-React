@@ -19,7 +19,6 @@ class App extends React.Component{
           players: data
         })
       })
-
   }
 
   render(){
@@ -29,7 +28,6 @@ class App extends React.Component{
       </div>
     );
   }
-  
 }
 
 export default App;

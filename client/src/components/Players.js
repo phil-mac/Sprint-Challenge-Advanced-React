@@ -1,21 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {useDarkMode} from '../hooks/useDarkMode';
+import {useTightMode} from '../hooks/useTightMode';
 
-export default props => {
-    const [darkMode, setDarkMode] = useDarkMode(false);
-
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-    }
+export default props => {  
+    const [toggleDarkMode] = useDarkMode(false);
+    const [toggleTightMode] = useTightMode(false);
 
     return(
         <header className="App-header">
-          <span>Dark Mode</span>
-          <input type='checkbox' onClick={toggleDarkMode}/>
-          <h1>Women's World Cup Players</h1>
+          <span style={{marginTop: '10px'}}>Dark Mode</span>
+          <br/>
+          <input type='checkbox' onClick={toggleDarkMode} data-testid='darkModeButton'/>
+          <br/>
+          <span>Tighten</span>
+          <br/>
+          <input type='checkbox' onClick={toggleTightMode} data-testid='tightModeButton'/>
+          <h1 data-testid='title'>Women's World Cup Players</h1>
           {
-            props.players.map(player => <p key={player.name}>{player.name} - {player.country} - Search Rank: {player.searches}</p>)
+            props.players.map(player => <p key={player.name} data-testid='player'>{player.name} - {player.country} - Search Rank: {player.searches}</p>)
           }
         </header>
     )

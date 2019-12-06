@@ -21,11 +21,16 @@
 body{
   background-color: white;
   color: #282c34;
+  line-height: 1.5rem;
 }
 
 .dark-mode {
   background-color: #282c34;
   color: white;
+}
+
+.tight-mode {
+  line-height: 0.5rem;
 }
 
 .App-link {

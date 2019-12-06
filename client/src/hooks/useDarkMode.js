@@ -1,12 +1,16 @@
-import {useState, useEffect} from 'react';
+import {useMode} from './useMode';
 
 export const useDarkMode = initial => {
-    const [mode, setMode] = useState(initial);
+    const darkModeOn = () => {
+        document.body.classList.add('dark-mode');
+    }
 
-    useEffect(() => {
-        mode ? document.body.classList.add('dark-mode') : document.body.classList.remove('dark-mode');
-    }, [mode])
+    const darkModeOff = () => {
+        document.body.classList.remove('dark-mode');
+    }
 
-    return [mode, setMode];
+    const [toggleDarkMode] = useMode(initial, darkModeOn, darkModeOff);
+
+    return [toggleDarkMode];
 }
 
